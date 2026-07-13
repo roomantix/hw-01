@@ -87,7 +87,7 @@ name  = "example_${random_password.random_string.result}"
 Ответ к Заданию 1.5
 
 Скриншот-1 к заданию 1.5
-![Скриншот 1](https://github.com/roomantix/рц-01/blob/main/img/2.png)
+![Скриншот 1](https://github.com/roomantix/hw-01/blob/main/img/2.png)
 
 
 
