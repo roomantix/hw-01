@@ -27,10 +27,71 @@
 
 1. Перейдите в каталог [**src**](https://github.com/netology-code/ter-homeworks/tree/main/01/src). Скачайте все необходимые зависимости, использованные в проекте. 
 2. Изучите файл **.gitignore**. В каком terraform-файле, согласно этому .gitignore, допустимо сохранить личную, секретную информацию?(логины,пароли,ключи,токены итд)
+
+
+```
+Ответ к Заданию 1.2
+Допустимо сохранять секреты в файле personal.auto.tfvars так как явно указан комментарий.
+
+```
+
+
 3. Выполните код проекта. Найдите  в state-файле секретное содержимое созданного ресурса **random_password**, пришлите в качестве ответа конкретный ключ и его значение.
+
+
+
+```
+Ответ к Заданию 1.3
+
+"result": "byGO9a8dFaRQYshh"
+
+```
+
+
+
 4. Раскомментируйте блок кода, примерно расположенный на строчках 29–42 файла **main.tf**.
 Выполните команду ```terraform validate```. Объясните, в чём заключаются намеренно допущенные ошибки. Исправьте их.
+
+```
+Ответ к Заданию 1.4
+/*
+resource "docker_image" {
+  name         = "nginx:latest"
+  keep_locally = true
+}
+
+resource "docker_container" "1nginx" {
+  image = docker_image.nginx.image_id
+  name  = "example_${random_password.random_string_FAKE.resulT}"
+
+  ports {
+    internal = 80
+    external = 9090
+  }
+}
+*/
+
+resource "docker_image" - не правильно , пропущено имя ресурса , 
+правильно resource "docker_image" "nginx"
+resource "docker_container" "1nginx" - не правильно , название ресурса должно начинатся с буквы , правильно
+resource "docker_container" "nginx_container"
+name  = "example_${random_password.random_string_FAKE.resulT}"
+не правильно, у нас нет такого ресурса и атрибута, правильно будет
+name  = "example_${random_password.random_string.result}"
+
+```
+
+
 5. Выполните код. В качестве ответа приложите: исправленный фрагмент кода и вывод команды ```docker ps```.
+
+Ответ к Заданию 1.5
+
+Скриншот-1 к заданию 1.5
+![Скриншот 1](https://github.com/roomantix/рц-01/blob/main/img/2.png)
+
+
+
+
 6. Замените имя docker-контейнера в блоке кода на ```hello_world```. Не перепутайте имя контейнера и имя образа. Мы всё ещё продолжаем использовать name = "nginx:latest". Выполните команду ```terraform apply -auto-approve```.
 Объясните своими словами, в чём может быть опасность применения ключа  ```-auto-approve```. Догадайтесь или нагуглите зачем может пригодиться данный ключ? В качестве ответа дополнительно приложите вывод команды ```docker ps```.
 8. Уничтожьте созданные ресурсы с помощью **terraform**. Убедитесь, что все ресурсы удалены. Приложите содержимое файла **terraform.tfstate**. 
