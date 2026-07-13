@@ -5,10 +5,11 @@ terraform {
     }
   }
   required_version = ">= 1.12.0, < 2.0.0"
+  #вот так только получилось запустить проект
 }
 provider "docker" {}
 
-#однострочный комментарий
+
 
 resource "random_password" "random_string" {
   length      = 16
