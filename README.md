@@ -86,6 +86,44 @@ name  = "example_${random_password.random_string.result}"
 
 Ответ к Заданию 1.5
 
+```
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+    }
+  }
+  required_version = ">= 1.12.0, < 2.0.0"
+}
+provider "docker" {}
+
+#однострочный комментарий
+
+resource "random_password" "random_string" {
+  length      = 16
+  special     = false
+  min_upper   = 1
+  min_lower   = 1
+  min_numeric = 1
+}
+
+
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = true
+}
+
+resource "docker_container" "nginx_container" {
+  image = docker_image.nginx.image_id
+  name  = "example_${random_password.random_string.result}"
+
+  ports {
+    internal = 80
+    external = 9090
+  }
+}
+```
+
 Скриншот-1 к заданию 1.5
 ![Скриншот 1](https://github.com/roomantix/hw-01/blob/main/img/2.png)
 
