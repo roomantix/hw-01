@@ -167,12 +167,15 @@ resource "docker_container" "nginx_container" {
 
 Ответ к Заданию 1.8
 
-```
-Образ не был удалён, потому что в определении ресурса docker_image присутствует параметр keep_locally со значением true
+``````
+Образ не был удалён, потому что в о
+пределении ресурса docker_image п
+рисутствует параметр keep_locally со значением true
 
-[ссылка](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs/resources/image#keep_locally)
+ссылка
+https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs/resources/image#keep_locally
 
-```
+``````
 
 
 
