@@ -5,11 +5,8 @@ terraform {
     }
   }
   required_version = ">= 1.12.0, < 2.0.0"
-  #вот так только получилось запустить проект
 }
 provider "docker" {}
-
-
 
 resource "random_password" "random_string" {
   length      = 16
@@ -25,7 +22,7 @@ resource "docker_image" "nginx" {
   keep_locally = true
 }
 
-resource "docker_container" "nginx_container" {
+resource "docker_container" "hello_world" {
   image = docker_image.nginx.image_id
   name  = "example_${random_password.random_string.result}"
 
