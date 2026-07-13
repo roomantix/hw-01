@@ -145,8 +145,35 @@ resource "docker_container" "nginx_container" {
 
 
 
-8. Уничтожьте созданные ресурсы с помощью **terraform**. Убедитесь, что все ресурсы удалены. Приложите содержимое файла **terraform.tfstate**. 
-9. Объясните, почему при этом не был удалён docker-образ **nginx:latest**. Ответ **ОБЯЗАТЕЛЬНО НАЙДИТЕ В ПРЕДОСТАВЛЕННОМ КОДЕ**, а затем **ОБЯЗАТЕЛЬНО ПОДКРЕПИТЕ** строчкой из документации [**terraform провайдера docker**](https://library.tf/providers/kreuzwerker/docker/latest).  (ищите в классификаторе resource docker_image )
+7. Уничтожьте созданные ресурсы с помощью **terraform**. Убедитесь, что все ресурсы удалены. Приложите содержимое файла **terraform.tfstate**. 
+
+Ответ к Заданию 1.7
+
+```
+{
+  "version": 4,
+  "terraform_version": "1.15.8",
+  "serial": 21,
+  "lineage": "1d61f7b0-2aab-d724-b0bc-8d769641296c",
+  "outputs": {},
+  "resources": [],
+  "check_results": null
+}
+
+```
+
+
+8. Объясните, почему при этом не был удалён docker-образ **nginx:latest**. Ответ **ОБЯЗАТЕЛЬНО НАЙДИТЕ В ПРЕДОСТАВЛЕННОМ КОДЕ**, а затем **ОБЯЗАТЕЛЬНО ПОДКРЕПИТЕ** строчкой из документации [**terraform провайдера docker**](https://library.tf/providers/kreuzwerker/docker/latest).  (ищите в классификаторе resource docker_image )
+
+Ответ к Заданию 1.8
+
+```
+Образ не был удалён, потому что в определении ресурса docker_image присутствует параметр keep_locally со значением true
+
+[ссылка](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs/resources/image#keep_locally)
+
+```
+
 
 
 ------
