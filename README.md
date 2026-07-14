@@ -137,7 +137,7 @@ https://github.com/roomantix/hw-01/blob/main/01/src/main.tf
 Ответ к Заданию 1.6
 
 ```
--auto-approve` Опасен тем что  Terraform не запрашивает подтверждения перед внесением изминением, это может привести к удалению или изминению 
+-auto-approve Опасен тем что  Terraform не запрашивает подтверждения перед внесением изминением, это может привести к удалению или изминению 
 критически важных ресурсов.
 Ключ полезен только в автоматизированных сценариях, где уже все проверено.
 
@@ -171,9 +171,9 @@ https://github.com/roomantix/hw-01/blob/main/01/src/main.tf
 Ответ к Заданию 1.8
 
 ``````
-Образ не был удалён, потому что в о
-пределении ресурса docker_image п
-рисутствует параметр keep_locally со значением true
+Образ не был удалён, потому что в 
+определении ресурса docker_image 
+присутствует параметр keep_locally со значением true
 
 ссылка
 https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs/resources/image#keep_locally
