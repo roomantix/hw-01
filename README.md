@@ -120,6 +120,9 @@ resource "docker_container" "nginx_container" {
     external = 9090
   }
 }
+
+сам код лежит тут
+https://github.com/roomantix/hw-01/blob/main/01/src/main.tf
 ```
 
 Скриншот-1 к заданию 1.5
